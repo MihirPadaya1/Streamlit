@@ -208,15 +208,15 @@ def ui_debug():
 
 def b_ask():
 	c1,c2,c3,c4,c5 = st.columns([2,1,1,2,2])
-	if c2.button('👍', use_container_width=True, disabled=not ss.get('output')):
-		ss['feedback'].send(+1, ss, details=ss['send_details'])
-		ss['feedback_score'] = ss['feedback'].get_score()
-	if c3.button('👎', use_container_width=True, disabled=not ss.get('output')):
-		ss['feedback'].send(-1, ss, details=ss['send_details'])
-		ss['feedback_score'] = ss['feedback'].get_score()
-	score = ss.get('feedback_score',0)
-	c5.write(f'feedback score: {score}')
-	c4.checkbox('send details', True, key='send_details',
+	#if c2.button('👍', use_container_width=True, disabled=not ss.get('output')):
+		#ss['feedback'].send(+1, ss, details=ss['send_details'])
+		#ss['feedback_score'] = ss['feedback'].get_score()
+	#if c3.button('👎', use_container_width=True, disabled=not ss.get('output')):
+		#ss['feedback'].send(-1, ss, details=ss['send_details'])
+		#ss['feedback_score'] = ss['feedback'].get_score()
+	#score = ss.get('feedback_score',0)
+	#c5.write(f'feedback score: {score}')
+	#c4.checkbox('send details', True, key='send_details',
 			help='allow question and the answer to be stored in the ask-my-pdf feedback database')
 	#c1,c2,c3 = st.columns([1,3,1])
 	#c2.radio('zzz',['👍',r'...',r'👎'],horizontal=True,label_visibility="collapsed")
