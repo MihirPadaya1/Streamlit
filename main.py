@@ -1,34 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Codespaces
-Marketplace
-Explore
- 
-@MihirPadaya1 
-nainiayoub
-/
-brainstorming-buddy
-Public
-Fork your own copy of nainiayoub/brainstorming-buddy
-Code
-Issues
-Pull requests
-Actions
-Projects
-Security
-Insights
-Beta Try the new code view
-brainstorming-buddy/app.py /
-@nainiayoub
-nainiayoub Update app.py
-Latest commit 77612db 3 weeks ago
- History
- 1 contributor
-143 lines (126 sloc)  4.25 KB
- 
-
 import streamlit as st
 import openai
 from datetime import datetime
@@ -172,5 +141,3 @@ if input_text:
         
 
         
-Footer
-© 2023 IGT Solutions.
