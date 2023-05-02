@@ -1,5 +1,5 @@
 __version__ = "0.4.8.3"
-app_name = "iDQ - Intelligent Document Query"
+app_name = "Ask my PDF"
 
 
 # BOILERPLATE
@@ -7,11 +7,6 @@ app_name = "iDQ - Intelligent Document Query"
 import streamlit as st
 st.set_page_config(layout='centered', page_title=f'{app_name} {__version__}')
 ss = st.session_state
-
-st.title("iDQ - Intelligent Document Query")
-
-st.write("This app will help you to ask Query from a PDF file")
-
 if 'debug' not in ss: ss['debug'] = {}
 import css
 st.write(f'<style>{css.v1}</style>', unsafe_allow_html=True)
@@ -65,18 +60,23 @@ def ui_spacer(n=2, line=False, next_n=0):
 
 def ui_info():
 	st.markdown(f"""
-	# iDQ - Intelligent Document Query
+	# Ask my PDF
 	version {__version__}
 	
-	This app will help you to ask Query from a PDF file
+	Question answering system built on top of GPT3.
 	""")
 	ui_spacer(1)
-	st.write("", unsafe_allow_html=True)
+	st.write("Made by [Maciej Obarski](https://www.linkedin.com/in/mobarski/).", unsafe_allow_html=True)
 	ui_spacer(1)
 	st.markdown("""
+		Thank you for your interest in my application.
+		Please be aware that this is only a Proof of Concept system
+		and may contain bugs or unfinished features.
+		If you like this app you can ❤️ [follow me](https://twitter.com/KerbalFPV)
+		on Twitter for news and updates.
 		""")
 	ui_spacer(1)
-	st.markdown('')
+	st.markdown('Source code can be found [here](https://github.com/mobarski/ask-my-pdf).')
 
 def ui_api_key():
 	if ss['community_user']:
@@ -209,16 +209,16 @@ def ui_debug():
 
 def b_ask():
 	c1,c2,c3,c4,c5 = st.columns([2,1,1,2,2])
-	#if c2.button('👍', use_container_width=True, disabled=not ss.get('output')):
-		#ss['feedback'].send(+1, ss, details=ss['send_details'])
-		#ss['feedback_score'] = ss['feedback'].get_score()
-	#if c3.button('👎', use_container_width=True, disabled=not ss.get('output')):
-		#ss['feedback'].send(-1, ss, details=ss['send_details'])
-		#ss['feedback_score'] = ss['feedback'].get_score()
-	#score = ss.get('feedback_score',0)
-	#c5.write(f'feedback score: {score}')
-	#c4.checkbox('send details', True, key='send_details',
-			#help='allow question and the answer to be stored in the ask-my-pdf feedback database')
+	if c2.button('👍', use_container_width=True, disabled=not ss.get('output')):
+		ss['feedback'].send(+1, ss, details=ss['send_details'])
+		ss['feedback_score'] = ss['feedback'].get_score()
+	if c3.button('👎', use_container_width=True, disabled=not ss.get('output')):
+		ss['feedback'].send(-1, ss, details=ss['send_details'])
+		ss['feedback_score'] = ss['feedback'].get_score()
+	score = ss.get('feedback_score',0)
+	c5.write(f'feedback score: {score}')
+	c4.checkbox('send details', True, key='send_details',
+			help='allow question and the answer to be stored in the ask-my-pdf feedback database')
 	#c1,c2,c3 = st.columns([1,3,1])
 	#c2.radio('zzz',['👍',r'...',r'👎'],horizontal=True,label_visibility="collapsed")
 	#
@@ -303,10 +303,10 @@ def output_add(q,a):
 
 # LAYOUT
 
-#with st.sidebar:
+with st.sidebar:
 	ui_info()
 	ui_spacer(2)
-	with st.expander(''):
+	with st.expander('advanced'):
 		ui_show_debug()
 		b_clear()
 		ui_model()
