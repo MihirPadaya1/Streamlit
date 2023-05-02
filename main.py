@@ -1,14 +1,17 @@
 __version__ = "0.4.8.3"
 app_name = "iDQ - Intelligent Document Query"
 
-st.title("iDQ - Intelligent Document Query")
 
-st.write("This app will help you to ask Query from a PDF file")
 # BOILERPLATE
 
 import streamlit as st
 st.set_page_config(layout='centered', page_title=f'{app_name} {__version__}')
 ss = st.session_state
+
+st.title("iDQ - Intelligent Document Query")
+
+st.write("This app will help you to ask Query from a PDF file")
+
 if 'debug' not in ss: ss['debug'] = {}
 import css
 st.write(f'<style>{css.v1}</style>', unsafe_allow_html=True)
