@@ -1,8 +1,9 @@
-openai
+git+https://github.com/mobarski/ai-bricks.git
 streamlit
-pandas
-langchain 
-tiktoken 
-PyPDF2 
-faiss-cpu
-streamlit-chat
+pypdf
+scikit-learn
+numpy
+pycryptodome
+boto3
+redis
+retry
