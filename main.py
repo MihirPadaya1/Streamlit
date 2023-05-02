@@ -298,7 +298,7 @@ def output_add(q,a):
 
 # LAYOUT
 
-with st.sidebar:
+#with st.sidebar:
 	ui_info()
 	ui_spacer(2)
 	with st.expander(''):
