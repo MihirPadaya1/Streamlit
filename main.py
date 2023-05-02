@@ -9,7 +9,7 @@ st.write("This app will help you to ask Query from a PDF file")
 st.subheader("Upload your PDF file")
 uploaded_files = st.file_uploader("Choose multiple files", accept_multiple_files=True)
 
-def generate_output
+def generate_output():
 
 st.subheader("Ask your question")
 
