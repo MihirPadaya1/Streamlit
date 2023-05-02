@@ -1,12 +1,11 @@
-from langchain.agents import load_tools
-from langchain.agents import initialize_agent
-from langchain.agents import AgentType
-from langchain.llms import OpenAI
+import streamlit as st
+from langchange.translator import Translator
 
-llm = OpenAI(temperature=0)
+translator = Translator()
 
-tools = load_tools(["serpapi", "llm-math"], llm=llm)
+text_input = st.text_input("Enter text to translate")
+target_language = st.selectbox("Select target language", ["Spanish", "French", "German"])
 
-agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True)
+translated_text = translator.translate(text_input, target_language)
 
-agent.run("Who is Leo DiCaprio's girlfriend? What is her current age raised to the 0.43 power?")
+st.write("Translated text: ", translated_text)
