@@ -65,23 +65,17 @@ def ui_spacer(n=2, line=False, next_n=0):
 
 def ui_info():
 	st.markdown(f"""
-	# Ask my PDF
+	# iDQ - Intelligent Document Query
 	version {__version__}
 	
-	Question answering system built on top of GPT3.
+	This app will help you to ask Query from a PDF file
 	""")
 	ui_spacer(1)
-	st.write("Made by [Maciej Obarski](https://www.linkedin.com/in/mobarski/).", unsafe_allow_html=True)
+	st.write("", unsafe_allow_html=True)
 	ui_spacer(1)
-	st.markdown("""
-		Thank you for your interest in my application.
-		Please be aware that this is only a Proof of Concept system
-		and may contain bugs or unfinished features.
-		If you like this app you can ❤️ [follow me](https://twitter.com/KerbalFPV)
-		on Twitter for news and updates.
-		""")
+	st.markdown("""""")
 	ui_spacer(1)
-	st.markdown('Source code can be found [here](https://github.com/mobarski/ask-my-pdf).')
+	st.markdown('')
 
 def ui_api_key():
 	if ss['community_user']:
@@ -308,10 +302,10 @@ def output_add(q,a):
 
 # LAYOUT
 
-#with st.sidebar:
+with st.sidebar:
 	ui_info()
 	ui_spacer(2)
-	#with st.expander(''):
+	with st.expander(''):
 		ui_show_debug()
 		b_clear()
 		ui_model()
