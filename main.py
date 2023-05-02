@@ -30,7 +30,7 @@ with form:
       st.subheader("Answer:")
       for i in range(num_input):
           st.markdown("""---""")
-          def generate_output(user_input):
+           def generate_output(user_input):
           ai_output = generate_output(user_input)
           st.write(ai_output)
           my_bar.progress((i+1)/num_input)
