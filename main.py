@@ -9,7 +9,6 @@ st.write("This app will help you to ask Query from a PDF file")
 st.subheader("Upload your PDF file")
 uploaded_files = st.file_uploader("Choose multiple files", accept_multiple_files=True)
 
-def generate_output():
 
 st.subheader("Ask your question")
 
@@ -30,9 +29,10 @@ with form:
       st.subheader("Answer:")
       for i in range(num_input):
           st.markdown("""---""")
-          ai_output = generate_output(user_input)
-          st.write(ai_output)
-          my_bar.progress((i+1)/num_input)
+          def generate_output():
+            ai_output = generate_output(user_input)
+            st.write(ai_output)
+            my_bar.progress((i+1)/num_input)
 
 st.write( '')
 hide="""
