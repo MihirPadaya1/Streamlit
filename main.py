@@ -1,5 +1,5 @@
 __version__ = "0.4.8.3"
-app_name = "Ask my PDF"
+app_name = "iDQ - Intelligent Document Query"
 
 
 # BOILERPLATE
@@ -60,10 +60,10 @@ def ui_spacer(n=2, line=False, next_n=0):
 
 def ui_info():
 	st.markdown(f"""
-	# Ask my PDF
+	# iDQ - Intelligent Document Query
 	version {__version__}
 	
-	Question answering system built on top of GPT3.
+	This app will help you to ask Query from a PDF file
 	""")
 	ui_spacer(1)
 	st.write("", unsafe_allow_html=True)
