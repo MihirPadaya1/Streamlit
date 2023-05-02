@@ -4,7 +4,7 @@ from datetime import datetime
 from streamlit.components.v1 import html
 import pandas as pd
 import csv
-st.set_page_config(page_title="Brainstorming Buddy")
+st.set_page_config(page_title="Agents/Events/Actions")
 
 
 html_temp = """
@@ -21,7 +21,7 @@ button = """
 with st.sidebar:
     st.markdown("""
     # About 
-    Brainstorming Buddy is a helper tool built on GPT-3 to generate ideas on a given topic. 
+    Agents/Events/Actions is a helper tool built on GPT-3 to generate ideas on a given topic. 
     """)
     st.markdown(html_temp.format("rgba(55, 53, 47, 0.16)"),unsafe_allow_html=True)
     st.markdown("""
@@ -31,7 +31,7 @@ with st.sidebar:
     """)
     st.markdown(html_temp.format("rgba(55, 53, 47, 0.16)"),unsafe_allow_html=True)
     st.markdown("""
-    Made by [@nainia_ayoub](https://twitter.com/nainia_ayoub)
+    
     """,
     unsafe_allow_html=True,
     )
@@ -45,11 +45,11 @@ if st.session_state['output'] <=2:
     st.markdown("""
     # Brainstorming Buddy
     """)
-    input_text = st.text_input("Brainstorm ideas for", disabled=False, placeholder="What's on your mind?")
+    input_text = st.text_input("Agents/Events/Actions for", disabled=False, placeholder="What's on your mind?")
     st.session_state['output'] = st.session_state['output'] + 1
 else:
     # input_text = st.text_input("Brainstorm ideas for", disabled=True)
-    st.info("Thank you! Refresh for more brainstorming💡")
+    st.info("Thank you! Refresh for more Agents/Events/Actions💡")
     st.markdown('''
     <a target="_blank" style="color: black" href="https://twitter.com/intent/tweet?text=I%20just%20used%20the%20Brainstorming%20Buddy%20streamlit%20helper%20tool%20by%20@nainia_ayoub!%0A%0Ahttps://brainstorming-buddy.streamlit.app/">
         <button class="btn">
@@ -113,13 +113,13 @@ st.markdown(hide, unsafe_allow_html=True)
 #     unsafe_allow_html=True,
 # )
 if input_text:
-    prompt = "Brainstorm ideas for "+str(input_text)
+    prompt = "Agents/Events/Actions for "+str(input_text)
     if prompt:
         openai.api_key = st.secrets["openaiKey"]
         response = openai.Completion.create(engine="text-davinci-002", prompt=prompt, max_tokens=150)
         brainstorming_output = response['choices'][0]['text']
         today = datetime.today().strftime('%Y-%m-%d')
-        topic = "Brainstorming ideas for: "+input_text+"\n@Date: "+str(today)+"\n"+brainstorming_output
+        topic = "Agents/Events/Actions ideas for: "+input_text+"\n@Date: "+str(today)+"\n"+brainstorming_output
         
         st.info(brainstorming_output)
         filename = "brainstorming_"+str(today)+".txt"
