@@ -217,7 +217,7 @@ def b_ask():
 	#score = ss.get('feedback_score',0)
 	#c5.write(f'feedback score: {score}')
 	#c4.checkbox('send details', True, key='send_details',
-			help='allow question and the answer to be stored in the ask-my-pdf feedback database')
+			#help='allow question and the answer to be stored in the ask-my-pdf feedback database')
 	#c1,c2,c3 = st.columns([1,3,1])
 	#c2.radio('zzz',['👍',r'...',r'👎'],horizontal=True,label_visibility="collapsed")
 	#
