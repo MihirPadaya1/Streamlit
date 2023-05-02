@@ -311,7 +311,6 @@ def output_add(q,a):
 with st.sidebar:
 	ui_info()
 	ui_spacer(2)
-	st.expander(''):
 		ui_show_debug()
 		b_clear()
 		ui_model()
