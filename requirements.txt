@@ -1,3 +1,7 @@
 openai
 streamlit
 pandas
+langchain 
+tiktoken 
+PyPDF2 
+faiss-cpu
