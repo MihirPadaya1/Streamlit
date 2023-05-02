@@ -1,7 +1,9 @@
 __version__ = "0.4.8.3"
-app_name = "Ask my PDF"
+app_name = "iDQ - Intelligent Document Query"
 
+st.title("iDQ - Intelligent Document Query")
 
+st.write("This app will help you to ask Query from a PDF file")
 # BOILERPLATE
 
 import streamlit as st
@@ -303,7 +305,7 @@ def output_add(q,a):
 
 # LAYOUT
 
-with st.sidebar:
+#with st.sidebar:
 	ui_info()
 	ui_spacer(2)
 	with st.expander('advanced'):
